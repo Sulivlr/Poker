@@ -9,6 +9,7 @@ const Card: React.FC<CardProps> = ({rank, suit}) => {
         <div>
             {rank} of {suit}
         </div>
+
     );
 }
 

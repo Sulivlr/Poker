@@ -2,12 +2,29 @@ import {useState} from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
+import Card from "./cards/card.tsx";
+import card from "./lib/card.ts";
+import CardDeck from "./lib/CardDeck.ts";
 
 function App() {
 
+    const App: React.FC = () => {
+        const [cards, setCards] = useState<card[]>([]);
+
+        const deckCards = () => {
+            const deck = new CardDeck();
+            const dealCards = deck.getCards(5);
+            setCards(dealCards)
+        }
+    }
+
     return (
+
         <div className="playingCards faceImages">
-        <span className="card rank-a diams">
+            <div>
+                <button onClick={deckCards}>throw cards</button>
+            </div>
+            <span className="card rank-a diams">
             <span className="rank">A</span>
             <span className="suit">♦</span>
         </span>
@@ -229,6 +246,7 @@ function App() {
 
         </div>
     );
+
 }
 
 export default App
